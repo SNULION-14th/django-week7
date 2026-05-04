@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework', # DRF 라이브러리
+    'django_extensions',
     'accounts.apps.AccountsConfig',
     'notices.apps.NoticesConfig'
 ]
