@@ -1,1 +1,1 @@
-django-week7/jeehoo_ER_diagram.png
+![alt text](jeehoo_ER_diagram.png)
