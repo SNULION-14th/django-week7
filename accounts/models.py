@@ -17,7 +17,7 @@ class User(models.Model):
 
 class Interest(models.Model):
   user_id = models.ForeignKey("User", on_delete=models.CASCADE)
-  keyword = models.CharField(128)
+  keyword = models.CharField(default=128)
   description = models.TextField()
   priority = models.IntegerField()
   created_at = models.DateTimeField(default=timezone.now())

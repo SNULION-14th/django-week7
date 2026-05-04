@@ -7,7 +7,7 @@ class Source(models.Model):
   url = models.URLField(max_length=1024)
   crawl_interval_minutes = models.PositiveIntegerField()
   crawled_at = models.DateTimeField()
-  created_at = models.DateTimeField(timezone.now())
+  created_at = models.DateTimeField(default=timezone.now())
 
   def __str__(self):
     return f'{self.name}: {self.url} ({self.id})'
@@ -22,7 +22,7 @@ class Notice(models.Model):
   publisher = models.CharField(max_length=256)
   published_at = models.DateTimeField()
   updated_at = models.DateTimeField()
-  created_at = models.DateTimeField(timezone.now())
+  created_at = models.DateTimeField(default=timezone.now())
 
   def __str__(self):
     return f'{self.title}({self.id})'
