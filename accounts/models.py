@@ -2,7 +2,7 @@ from django.db import models
 from django.utils import timezone
 
 # Create your models here.
-class Users(models.Model):
+class User(models.Model):
   pw_hash = models.CharField(max_length=256)
   email = models.EmailField()
   name = models.CharField(max_length=128)
@@ -15,8 +15,8 @@ class Users(models.Model):
     return f'{self.name}({self.id})'
 
 
-class Interests(models.Model):
-  user_id = models.ForeignKey("Users", on_delete=models.CASCADE)
+class Interest(models.Model):
+  user_id = models.ForeignKey("User", on_delete=models.CASCADE)
   keyword = models.CharField(128)
   description = models.TextField()
   priority = models.IntegerField()
