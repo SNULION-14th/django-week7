@@ -1,1 +1,1 @@
-# django-week7
+![alt text](jeehoo_ER_diagram.png)
