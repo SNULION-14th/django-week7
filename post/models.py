@@ -5,7 +5,7 @@ class User(models.Model):
   user_id = models.AutoField(primary_key=True)
   name = models.CharField(max_length=100)
   password = models.CharField(max_length=100)
-  emain = models.CharField(max_length=100)
+  email = models.CharField(max_length=100)
 
   class Meta:
     db_table = '유저'
@@ -31,10 +31,8 @@ class CrewMember(models.Model):
     ("member", "member"),
   ]
 
-  crew_member_id = models.CharField(
-    max_length=255,
-    primary_key = True,
-  )
+  crew_member_id = models.AutoField(primary_key = True)
+
 
   user = models.ForeignKey(
     User,
@@ -85,7 +83,7 @@ class WorkoutLog(models.Model):
     ("running", "running"),
     ("cycling", "cycling"),
     ("walking", "walking"),
-    ("etx", "etc"),
+    ("etc", "etc"),
   ]
 
   exercise_id = models.AutoField(primary_key=True)
@@ -93,12 +91,12 @@ class WorkoutLog(models.Model):
     User,
     on_delete = models.CASCADE,
   )
-  exersice_type = models.CharField(
+  exercise_type = models.CharField(
     max_length=20,
     choices = EXERCISE_TYPE_CHOICES,
   )
   amount = models.IntegerField()
-  caloires = models.IntegerField()
+  calories = models.IntegerField()
   exercise_date = models.DateTimeField()
 
   class Meta:
