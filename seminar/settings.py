@@ -130,4 +130,4 @@ REST_FRAMEWORK = {
     )
 }
 
-AUTH_USER_MODEL = 'accounts.Users'
+AUTH_USER_MODEL = 'accounts.User'
