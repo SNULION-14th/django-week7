@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "rest_framework",
-    "post.apps.PostConfig",
+    # "post.apps.PostConfig","
+    "major.apps.MajorConfig",
     "django_extensions",
 ]
 
