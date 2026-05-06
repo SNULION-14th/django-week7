@@ -11,19 +11,26 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+import environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+env = environ.Env(
+    DEBUG=(bool, False)
+)
 
+# .env 파일을 가져와서, 해당 파일 내부의 SECRET_KEY라는 변수 내부의 값을 가져옵니다
+environ.Env.read_env(
+    env_file=BASE_DIR / '.env'
+)
+
+
+SECRET_KEY = env('SECRET_KEY')
+DEBUG = env('DEBUG')
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-n3hz($1s2j8pd#ku_pvasp1oac-e)!ue9c2qy%kiew)u$nafu9'
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
 
 ALLOWED_HOSTS = []
 
@@ -37,6 +44,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_extensions',
+    'todo.apps.TodoConfig',
 ]
 
 MIDDLEWARE = [
@@ -116,6 +125,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES' : (
+        'rest_framework.permissions.AllowAny',
+    )
+}
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
